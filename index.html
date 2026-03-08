@@ -297,6 +297,61 @@
       font-weight: 600;
     }
 
+    /* OFFICES SECTION */
+    .offices-section { background: var(--white); }
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .office-card {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .office-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    .office-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .office-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .office-card:hover .office-img-wrap img { transform: scale(1.05); }
+    .office-badge {
+      position: absolute; bottom: 12px; left: 12px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+    .office-card-body {
+      padding: 20px 24px;
+      background: var(--navy);
+    }
+    .office-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .office-card-body p {
+      color: var(--silver);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
     /* TESTIMONIAL */
     .testimonial {
       background: var(--light);
@@ -485,37 +540,37 @@
         <div class="service-icon">🏢</div>
         <h3>MSP</h3>
         <p>As a managed service provider, ASI Global manages a customer's HR &amp; TA infrastructure on a proactive basis under a cost-efficient subscription model.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#6203110b050e0d00030e110d0e17160b0d0c1122050f030b0e4c010d0f" class="service-link">+ Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🔍</div>
         <h3>RPO</h3>
         <p>As a Recruitment Process Outsourcer, ASI Global handles client's talent acquisition process, functioning as the client's talent department with an on-site presence.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#e9889a808e85868b88859a86859c9d8086879aa98e84888085c78a8684" class="service-link">+ Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon">⭐</div>
         <h3>Retained Search</h3>
         <p>ASI Global is a leader in retained search for executive and C-Suite positions, delivering top-tier candidates with precision and discretion.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#91f0e2f8f6fdfef3f0fde2fefde4e5f8feffe2d1f6fcf0f8fdbff2fefc" class="service-link">+ Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon">📊</div>
         <h3>HR &amp; Talent Consulting</h3>
         <p>ASI Global provides boutique human capital consulting services oriented toward performance improvement and employee engagement.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#f8998b919f94979a99948b97948d8c9197968bb89f95999194d69b9795" class="service-link">+ Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🛡️</div>
         <h3>Strategic Cleared Recruitment</h3>
         <p>ASI Global provides strategic cleared human capital solutions individually oriented for each DoD contract client, whether TS/SCI or FSP clearance.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#1372607a747f7c71727f607c7f66677a7c7d6053747e727a7f3d707c7e" class="service-link">+ Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon">🧪</div>
         <h3>Testing &amp; Evaluation</h3>
         <p>ASI Global provides pre-employment testing and associated analytics via our staff psychologists, giving clients enhanced insight into candidate performance and fit.</p>
-        <a href="mailto:asiglobalsolutions@gmail.com" class="service-link">+ Learn More</a>
+        <a href="/cdn-cgi/l/email-protection#39584a505e55565b58554a56554c4d5056574a795e54585055175a5654" class="service-link">+ Learn More</a>
       </div>
     </div>
   </div>
@@ -571,64 +626,18 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<!-- OFFICES -->
+<section class="offices-section" id="offices">
   <div class="container">
-    <div class="section-label" style="color:var(--gold)">Get In Touch</div>
-    <h2 class="section-title">Ready to Find Out More?</h2>
+    <div class="section-label">Where We Are</div>
+    <h2 class="section-title">Our Global Offices</h2>
     <div class="section-line"></div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>Contact us for a free consultation. Whether you need HR help, HR consulting, recruiting help or recruitment consulting — you will be glad you did.</p>
-        <div class="contact-detail">
-          <strong>HQ</strong>
-          <span>875 N. Michigan Avenue, Suite 750<br/>Chicago, IL 60611</span>
+    <div class="offices-grid">
+      <div class="office-card">
+        <div class="office-img-wrap">
+          <img src="Office-Chicago.jpg" alt="Chicago HQ"/>
+          <div class="office-badge">Corporate HQ</div>
         </div>
-        <div class="contact-detail">
-          <strong>Boston</strong>
-          <span>200 Clarendon, Suite 1501<br/>Boston, MA 02116</span>
-        </div>
-        <div class="contact-detail">
-          <strong>HK</strong>
-          <span>3 Arbuthnot Rd, Central<br/>Hong Kong</span>
-        </div>
-        <div class="contact-detail">
-          <strong>Tel</strong>
-          <span>888.645.2425</span>
-        </div>
-        <div class="contact-detail">
-          <strong>Email</strong>
-          <span>asiglobalsolutions@gmail.com<br/>admin@asiglobalstaffing.com</span>
-        </div>
-      </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <input type="text" placeholder="Your Name" required/>
-        <input type="email" placeholder="Your Email" required/>
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-        <div id="form-msg" style="color:var(--gold);font-size:0.9rem;display:none;">Thanks for reaching out — we'll be in touch soon!</div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2000 ASI Global Solutions. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="mailto:asiglobalsolutions@gmail.com">Email Us</a>
-    <a href="https://www.linkedin.com/in/asi-global-services-059342174/" target="_blank">LinkedIn</a>
-    <a href="https://www.asirecruiting.com" target="_blank">Legacy Site</a>
-  </div>
-</footer>
-
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('form-msg').style.display = 'block';
-    e.target.reset();
-  }
-</script>
-
-</body>
-</html>
+        <div class="office-card-body">
+          <h3>Chicago, Illinois</h3>
+          <p>875 N. Michigan 

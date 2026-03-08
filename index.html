@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | ASI Global Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #ff6b35;
+            --primary-blue: #1e3a5f;
+            --accent-blue: #2c5f8d;
+            --silver-blue: #4a7ba7;
+            --dark-blue: #0f2037;
+            --light-gray: #f5f7fa;
+            --white: #ffffff;
+            --silver: #e8eef3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(90, 125, 154, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--silver-blue);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .company-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: linear-gradient(rgba(30, 58, 95, 0.5), rgba(74, 123, 167, 0.4)), url('hero-cityscape.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-logo {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-orange);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Team Section */
+        .team-section {
+            background: var(--silver);
+            padding: 4rem 2rem;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent-blue);
+        }
+
+        .team-member h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 3px 15px rgba(90, 125, 154, 0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-left-color: var(--primary-blue);
+            box-shadow: 0 5px 20px rgba(90, 125, 154, 0.2);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .learn-more {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .learn-more:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Office Locations */
+        .locations-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            padding: 4rem 2rem;
+            color: var(--white);
+        }
+
+        .locations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .location-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .location-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .testimonial {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-style: normal;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--accent-red);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-section,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .team-grid,
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.jpg" alt="ASI Global Logo" class="logo">
+                <span class="company-name">ASI Global</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Why Choose Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>ASI</h2>
+            <h1>Global Solutions</h1>
+            <h2>MSP & RPO Consulting</h2>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <img src="logo.jpg" alt="ASI Orange Globe" class="about-logo">
+        <div class="about-text">
+            <h3>ASI Global Solutions</h3>
+            <p>ASI Global Solutions is a worldwide provider of managed staffing, recruitment outsourcing, Human capital consulting and people data analytics. With office locations in Boston, Hong Kong and Singapore, we are in a unique position to serve the world's human capital needs.</p>
+            <a href="#services" class="cta-button">Find out more</a>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="section-title">Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="team-paul.jpg" alt="Paul R. Carswell, Jr." class="team-photo">
+                    <h4>Paul R. Carswell, Jr.</h4>
+                    <p>Chief Operating Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-jack.jpg" alt="Jack W. Swilling" class="team-photo">
+                    <h4>Jack W. Swilling</h4>
+                    <p>Chief Talent Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-deborah.jpg" alt="Deborah Dunning" class="team-photo">
+                    <h4>Deborah Dunning</h4>
+                    <p>Chief Sales Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-madison.jpg" alt="Dr. Madison James" class="team-photo">
+                    <h4>Dr. Madison James</h4>
+                    <p>Chief Testing & Analytics Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-edward.jpg" alt="Edward Collins" class="team-photo">
+                    <h4>Edward Collins</h4>
+                    <p>Chief Human Resource Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-tamara.jpg" alt="Tamara Sampkins" class="team-photo">
+                    <h4>Tamara Sampkins</h4>
+                    <p>VP Account Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>MSP</h3>
+                <p>As a managed service provider, ASI Global manages a customer's HR & TA infrastructure on a proactive basis and under a cost-efficient subscription model.</p>
+                <a href="/cdn-cgi/l/email-protection#69081a000e05060b08051a06051c1d0006071a290e04080005470a0604" class="learn-more">+ Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>RPO</h3>
+                <p>As a Recruitment Process Outsourcer, ASI Global handles client's talent acquisition process, functioning as the client's talent department with an on-site presence.</p>
+                <a href="/cdn-cgi/l/email-protection#b0d1c3d9d7dcdfd2d1dcc3dfdcc5c4d9dfdec3f0d7ddd1d9dc9ed3dfdd" class="learn-more">+ Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>Retained Search</h3>
+                <p>ASI Global is also a leader in retained search for clients for executive and C-Suite positions.</p>
+                <a href="/cdn-cgi/l/email-protection#dbbaa8b2bcb7b4b9bab7a8b4b7aeafb2b4b5a89bbcb6bab2b7f5b8b4b6" class="learn-more">+ Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>HR & Talent Consulting</h3>
+                <p>ASI Global provides boutique human capital consulting services oriented toward performance improvement and employee engagement.</p>
+                <a href="/cdn-cgi/l/email-protection#1b7a68727c7774797a776874776e6f727475685b7c767a727735787476" class="learn-more">+ Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>Strategic Cleared Recruitment Solutions</h3>
+                <p>ASI Global provides strategic cleared human capital solutions individually oriented for each DoD contract client whether TS/SCI or FSP clearance.</p>
+                <a href="/cdn-cgi/l/email-protection#3b5a48525c5754595a574854574e4f525455487b5c565a525715585456" class="learn-more">+ Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>Testing & Evaluation</h3>
+                <p>ASI Global provides pre-employment testing and associated analytics via our staff psychologists, giving clients enhanced insight into candidate performance and fit.</p>
+                <a href="/cdn-cgi/l/email-protection#b7d6c4ded0dbd8d5d6dbc4d8dbc2c3ded8d9c4f7d0dad6dedb99d4d8da" class="learn-more">+ Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="locations-section">
+        <div class="locations-container">
+            <h2 class="section-title">Our Global Offices</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <img src="office-chicago.jpg" alt="Chicago Office" class="location-image">
+                    <h4>Corporate HQ</h4>
+                    <p>875 N. Michigan Avenue<br>Chicago, IL 60611</p>
+                </div>
+                <div class="location-card">
+                    <img src="office-boston.jpg" alt="Boston Office" class="location-image">
+                    <h4>Boston Office</h4>
+                    <p>200 Clarendon</p>
+                </div>
+                <div class="location-card">
+                    <img src="office-hongkong.jpg" alt="Hong Kong Office" class="location-image">
+                    <h4>Hong Kong Office</h4>
+                    <p>3 Arbuthnot Rd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial">
+            <p>"Utilizing ASI Global made staffing much easier, provided highly qualified staff and was extremely cost efficient."</p>
+            <p class="testimonial-author">Jason Strauss<br>CEO of Baxter Pro Pharma International</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Ready to find out more?</h2>
+                <p>Why spend $60,000 annually or more (not including benefits) for an HR employee, when ASI Global can provided a dedicated HR expert for 95% less cost?</p>
+                <p>If you need HR Help, HR Consulting, recruiting help or recruitment consulting, give us a call. Contact us for a free consultation. You will be glad you did!</p>
+                
+                <div class="contact-details">
+                    <p><strong>Main Contact:</strong><br>
+                    Tel: 888.645.2425<br>
+                    Email: asiglobalsolutions@gmail.com</p>
+                    
+                    <p style="margin-top: 2rem;"><strong>Corporate HQ</strong><br>875 N. Michigan Avenue<br>Chicago, IL 60611</p>
+                    <p><strong>Boston Office</strong><br>200 Clarendon Suite 1501<br>Boston, MA 02116</p>
+                    <p><strong>Hong Kong Office</strong><br>3 Arbuthnot Rd, Central, Hong Kong</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Get Free Evaluation</h3>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Enter Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Type Your Message Here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank">📘</a>
+                <a href="https://www.twitter.com" target="_blank">🐦</a>
+                <a href="https://www.linkedin.com/in/asi-global-services-059342174/" target="_blank">💼</a>
+            </div>
+            <p>© 2000 Copyright ASI Global Solutions</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi

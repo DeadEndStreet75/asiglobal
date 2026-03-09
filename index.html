@@ -664,4 +664,64 @@
       </div>
     </div>
   </div>
-</section> 
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Get In Touch</div>
+    <h2 class="section-title">Ready to Find Out More?</h2>
+    <div class="section-line"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Contact us for a free consultation. Whether you need HR help, HR consulting, recruiting help or recruitment consulting — you will be glad you did.</p>
+        <div class="contact-detail">
+          <strong>HQ</strong>
+          <span>875 N. Michigan Avenue, Suite 750<br/>Chicago, IL 60611</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Boston</strong>
+          <span>200 Clarendon, Suite 1501<br/>Boston, MA 02116</span>
+        </div>
+        <div class="contact-detail">
+          <strong>HK</strong>
+          <span>3 Arbuthnot Rd, Central<br/>Hong Kong</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Tel</strong>
+          <span>888.645.2425</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <span>asiglobalsolutions@gmail.com<br/>admin@asiglobalstaffing.com</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required/>
+        <input type="email" placeholder="Your Email" required/>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+        <div id="form-msg" style="color:var(--gold);font-size:0.9rem;display:none;">Thanks for reaching out — we'll be in touch soon!</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2000 ASI Global Solutions. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="mailto:asiglobalsolutions@gmail.com">Email Us</a>
+    <a href="https://www.linkedin.com/in/asi-global-services-059342174/" target="_blank">LinkedIn</a>
+    <a href="https://www.asirecruiting.com" target="_blank">Legacy Site</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-msg').style.display = 'block';
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html> 

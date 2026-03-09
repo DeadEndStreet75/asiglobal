@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASI Global Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1f3c;
+      --navy-mid: #122a52;
+      --gold: #c8972a;
+      --silver: #b0b8c1;
+      --white: #ffffff;
+      --light: #f4f6f9;
+      --text: #2c3e50;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 70px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo img {
+      height: 44px; width: auto;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+    .nav-logo-text span { color: var(--gold); display: block; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 8px;
+    }
+    nav ul a {
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav ul a:hover { color: var(--white); background: rgba(200,151,42,0.15); }
+
+    /* HERO */
+    .hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a6b 100%);
+      min-height: 520px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 60px 40px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://static.wixstatic.com/media/ea71bb_370144e721bc43c289bfb35fed3376d1~mv2_d_4500_2124_s_2.jpg/v1/fill/w_842,h_397,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea71bb_370144e721bc43c289bfb35fed3376d1~mv2_d_4500_2124_s_2.jpg') center/cover no-repeat;
+      opacity: 0.12;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 650px;
+    }
+    .hero-eyebrow {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .hero-sub {
+      color: var(--silver);
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 32px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: #e0a930; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+      margin-left: 12px;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); background: transparent; }
+
+    /* OFFICES STRIP */
+    .offices-strip {
+      background: var(--gold);
+      padding: 18px 40px;
+      display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+    }
+    .office-item {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .office-item::before { content: '◆'; font-size: 0.5rem; }
+
+    /* SECTION COMMON */
+    section { padding: 80px 40px; }
+    .section-label {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-line {
+      width: 60px; height: 3px;
+      background: var(--gold);
+      margin-bottom: 40px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ABOUT */
+    .about { background: var(--light); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .about-text p {
+      font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 16px;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .stat-box {
+      background: var(--navy);
+      padding: 28px 24px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-box .label {
+      color: var(--silver);
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* SERVICES */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid var(--gold);
+      padding: 32px 28px;
+      border-radius: 4px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 1.8rem; margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 0.95rem; line-height: 1.7; color: #64748b;
+      margin-bottom: 20px;
+    }
+    .service-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .service-link:hover { color: var(--navy); }
+
+    /* TEAM */
+    .team { background: var(--navy); }
+    .team .section-title { color: var(--white); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      text-align: center;
+      padding: 32px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .team-card:hover { background: rgba(255,255,255,0.1); }
+    .team-photo {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      margin-bottom: 16px;
+    }
+    .team-photo-placeholder {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 3px solid var(--gold);
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--gold);
+    }
+    .team-card h3 {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .team-card .title {
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* OFFICES SECTION */
+    .offices-section { background: var(--white); }
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .office-card {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .office-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    .office-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .office-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .office-card:hover .office-img-wrap img { transform: scale(1.05); }
+    .office-badge {
+      position: absolute; bottom: 12px; left: 12px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+    .office-card-body {
+      padding: 20px 24px;
+      background: var(--navy);
+    }
+    .office-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .office-card-body p {
+      color: var(--silver);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial {
+      background: var(--light);
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .testimonial blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      max-width: 700px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .testimonial cite {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--navy); }
+    .contact .section-title { color: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .contact-info p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 16px;
+      color: var(--silver);
+      font-size: 0.95rem;
+    }
+    .contact-detail strong { color: var(--gold); min-width: 60px; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 3px;
+      color: var(--white);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .contact-form textarea { height: 130px; resize: vertical; }
+    .contact-form button {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover { background: #e0a930; }
+
+    /* FOOTER */
+    footer {
+      background: #050f1e;
+      padding: 28px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer p { color: var(--silver); font-size: 0.82rem; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      color: var(--silver); text-decoration: none;
+      font-size: 0.82rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid, .team-grid { grid-template-columns: 1fr 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .services-grid, .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="ASI-Globe.png" alt="ASI Global Solutions Globe Logo" onerror="this.style.display='none'"/>
+    <div class="nav-logo-text">
+      ASI Global Solutions
+      <span>MSP &amp; RPO Consulting</span>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Worldwide Human Capital Solutions</div>
+    <h1>ASI <em>Global</em><br/>Solutions</h1>
+    <div class="hero-sub">MSP &amp; RPO Consulting</div>
+    <p>A worldwide provider of managed staffing, recruitment outsourcing, human capital consulting and people data analytics — positioned to serve the world's human capital needs.</p>
+    <a href="#contact" class="btn">Free Consultation</a>
+    <a href="#services" class="btn btn-outline">Our Services</a>
+  </div>
+</section>
+
+<!-- OFFICES STRIP -->
+<div class="offices-strip">
+  <div class="office-item">Corporate HQ — Chicago, IL</div>
+  <div class="office-item">Boston Office — 200 Clarendon</div>
+  <div class="office-item">Hong Kong — 3 Arbuthnot Rd</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">A Global Leader in Human Capital</h2>
+        <div class="section-line"></div>
+        <p>ASI Global Solutions is a worldwide provider of managed staffing, recruitment outsourcing, human capital consulting and people data analytics. With office locations in Boston, Hong Kong and Singapore, we are in a unique position to serve the world's human capital needs.</p>
+        <p>Why spend $60,000 annually or more for an HR employee when ASI Global can provide a dedicated HR expert for 95% less cost? Contact us for a free consultation — you will be glad you did.</p>
+        <a href="#contact" class="btn" style="margin-top:12px;">Get Free Evaluation</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <span class="num">25+</span>
+          <span class="label">Years Experience</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">3</span>
+          <span class="label">Global Offices</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">95%</span>
+          <span class="label">Cost Savings</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">6</span>
+          <span class="label">Service Lines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <div class="section-line"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>MSP</h3>
+        <p>As a managed service provider, ASI Global manages a customer's HR &amp; TA infrastructure on a proactive basis under a cost-efficient subscription model.</p>
+        <a href="/cdn-cgi/l/email-protection#6203110b050e0d00030e110d0e17160b0d0c1122050f030b0e4c010d0f" class="service-link">+ Learn More</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>RPO</h3>
+        <p>As a Recruitment Process Outsourcer, ASI Global handles client's talent acquisition process, functioning as the client's talent department with an on-site presence.</p>
+        <a href="/cdn-cgi/l/email-protection#e9889a808e85868b88859a86859c9d8086879aa98e84888085c78a8684" class="service-link">+ Learn More</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⭐</div>
+        <h3>Retained Search</h3>
+        <p>ASI Global is a leader in retained search for executive and C-Suite positions, delivering top-tier candidates with precision and discretion.</p>
+        <a href="/cdn-cgi/l/email-protection#91f0e2f8f6fdfef3f0fde2fefde4e5f8feffe2d1f6fcf0f8fdbff2fefc" class="service-link">+ Learn More</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>HR &amp; Talent Consulting</h3>
+        <p>ASI Global provides boutique human capital consulting services oriented toward performance improvement and employee engagement.</p>
+        <a href="/cdn-cgi/l/email-protection#f8998b919f94979a99948b97948d8c9197968bb89f95999194d69b9795" class="service-link">+ Learn More</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Strategic Cleared Recruitment</h3>
+        <p>ASI Global provides strategic cleared human capital solutions individually oriented for each DoD contract client, whether TS/SCI or FSP clearance.</p>
+        <a href="/cdn-cgi/l/email-protection#1372607a747f7c71727f607c7f66677a7c7d6053747e727a7f3d707c7e" class="service-link">+ Learn More</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧪</div>
+        <h3>Testing &amp; Evaluation</h3>
+        <p>ASI Global provides pre-employment testing and associated analytics via our staff psychologists, giving clients enhanced insight into candidate performance and fit.</p>
+        <a href="/cdn-cgi/l/email-protection#39584a505e55565b58554a56554c4d5056574a795e54585055175a5654" class="service-link">+ Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Leadership</div>
+    <h2 class="section-title">Our Team</h2>
+    <div class="section-line"></div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="Team-Paul.jpg" alt="Paul R. Carswell Jr." class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Paul R. Carswell, Jr.</h3>
+        <div class="title">Chief Operating Officer</div>
+      </div>
+      <div class="team-card">
+        <img src="Team-Deborah.jpg" alt="Deborah Dunning" class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Deborah Dunning</h3>
+        <div class="title">Chief Sales Officer</div>
+      </div>
+      <div class="team-card">
+        <img src="Team-Madison.jpg" alt="Dr. Madison James" class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Dr. Madison James</h3>
+        <div class="title">Chief Testing &amp; Analytics Officer</div>
+      </div>
+      <div class="team-card">
+        <img src="Team-Edward.jpg" alt="Edward Collins" class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Edward Collins</h3>
+        <div class="title">Chief Human Resource Officer</div>
+      </div>
+      <div class="team-card">
+        <img src="Team-Tamara.jpg" alt="Tamara Sampkins" class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Tamara Sampkins</h3>
+        <div class="title">VP Account Management</div>
+      </div>
+      <div class="team-card">
+        <img src="Team-Jack.jpg" alt="Jack W. Swilling" class="team-photo" onerror="this.outerHTML='<div class=\'team-photo-placeholder\'>👤</div>'"/>
+        <h3>Jack W. Swilling</h3>
+        <div class="title">Chief Talent Officer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <div class="section-label" style="text-align:center">Client Success</div>
+    <blockquote>"Utilizing ASI Global made staffing much easier, provided highly qualified staff and was extremely cost efficient."</blockquote>
+    <cite>Jason Strauss — CEO, Baxter Pro Pharma International</cite>
+  </div>
+</section>
+
+<!-- OFFICES -->
+<section class="offices-section" id="offices">
+  <div class="container">
+    <div class="section-label">Where We Are</div>
+    <h2 class="section-title">Our Global Offices</h2>
+    <div class="section-line"></div>
+    <div class="offices-grid">
+      <div class="office-card">
+        <div class="office-img-wrap">
+          <img src="Office-Chicago.jpg" alt="Chicago HQ"/>
+          <div class="office-badge">Corporate HQ</div>
+        </div>
+        <div class="office-card-body">
+          <h3>Chicago, Illinois</h3>
+          <p>875 N. Michigan Avenue, Suite 750<br/>Chicago, IL 60611</p>
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-img-wrap">
+          <img src="Office-Boston.jpg" alt="Boston Office"/>
+          <div class="office-badge">Boston Office</div>
+        </div>
+        <div class="office-card-body">
+          <h3>Boston, Massachusetts</h3>
+          <p>200 Clarendon, Suite 1501<br/>Boston, MA 02116</p>
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-img-wrap">
+          <img src="Office-Hongkong.jpg" alt="Hong Kong Office"/>
+          <div class="office-badge">Hong Kong Office</div>
+        </div>
+        <div class="office-card-body">
+          <h3>Hong Kong</h3>
+          <p>3 Arbuthnot Rd<br/>Central, Hong Kong</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Get In Touch</div>
+    <h2 class="section-title">Ready to Find Out More?</h2>
+    <div class="section-line"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Contact us for a free consultation. Whether you need HR help, HR consulting, recruiting help or recruitment consulting — you will be glad you did.</p>
+        <div class="contact-detail">
+          <strong>HQ</strong>
+          <span>875 N. Michigan Avenue, Suite 750<br/>Chicago, IL 60611</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Boston</strong>
+          <span>200 Clarendon, Suite 1501<br/>Boston, MA 02116</span>
+        </div>
+        <div class="contact-detail">
+          <strong>HK</strong>
+          <span>3 Arbuthnot Rd, Central<br/>Hong Kong</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Tel</strong>
+          <span>888.645.2425</span>
+        </div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3c5d4f555b50535e5d504f535049485553524f7c5b515d5550125f5351">[email&#160;protected]</a><br/><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355451585c5b7554465c52595a57545946415453535c5b521b565a58">[email&#160;protected]</a></span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required/>
+        <input type="email" placeholder="Your Email" required/>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+        <div id="form-msg" style="color:var(--gold);font-size:0.9rem;display:none;">Thanks for reaching out — we'll be in touch soon!</div>
+      </form>
+    </div>
+  </div>
